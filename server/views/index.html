@@ -1,0 +1,45 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>Charge Account</title>
+		
+		<script src="/scripts/editablegrid-2.0.1.js"></script>
+		<script src="/scripts/jquery-2.1.3.min.js"></script>
+		<script src="/scripts/data.js"></script>
+		<script src="/scripts/index.js"></script>
+		<link rel="stylesheet" href="/scripts/editablegrid-2.0.1.css" type="text/css" media="screen">
+		
+		<style>
+			body { font-family:'lucida grande', tahoma, verdana, arial, sans-serif; font-size:11px; }
+			h1 { font-size: 15px; }
+			a { color: #548dc4; text-decoration: none; }
+			a:hover { text-decoration: underline; }
+			table.testgrid { border-collapse: collapse; border: 1px solid #CCB; width: 800px; }
+			table.testgrid td, table.testgrid th { padding: 5px; border: 1px solid #E0E0E0; }
+			table.testgrid th { background: #E5E5E5; text-align: left; }
+			input.invalid { background: red; color: #FDFDFD; }
+			tr.highlight {background-color: #98F5FF;}
+		</style>
+		
+		<script>
+			$(function() {
+				on_load();
+			});
+		</script>
+		
+	</head>
+	
+	<body>
+		<h1>T.G. Hong's charge account</h1> 
+		<div id="tablecontent"></div>
+		<label for="filter">필터 :</label>
+		<select id="name_filter"></select>
+		<label >총계 :</label>
+		<label id="total_amount"></label>
+
+	</body>
+
+</html>
