@@ -26,6 +26,11 @@ setInterval(function(){
 		$('#status').children().remove();
 		for (var i = 0 ; i < server_list.length ; i++) {
 			$('<li></li>').text(server_list[i]).appendTo('#status');
+			$('title').text = '* Server Status';
+		}
+		if (server_list.length === 0) {
+			$('<li></li>').text('All servers are running well!').appendTo('#status');
+			$('title').text = 'Server Status';
 		}
 	});
 }, 10000);
