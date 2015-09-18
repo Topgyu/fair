@@ -10,9 +10,9 @@ function get_failed_server(callback){
 				}
 			}
 			
-			$('.name').removeClass('red');
+			$('#status .name').removeClass('red');
 			for (var i = 0 ; i < server_list.length ; i++) {
-				$('.' + server_list[i]).addClass('red');
+				$('#status .' + server_list[i]).addClass('red');
 				$('title')[0].text = '* Server Status';
 			}
 			if (server_list.length == 0){
