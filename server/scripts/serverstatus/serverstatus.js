@@ -2,35 +2,39 @@ function get_failed_server(callback){
 	$.ajax({
 		url: '/serverstatus.json',
 		success: function(x) {
-			var result = [];
+			var server_list = [];
 			var data = JSON.parse(x);
 			for (var key in data) {
 				if (parseInt(data[key]) != 0) {
-					result.push(key);
+					server_list.push(key);
 				}
 			}
-			callback(result);
+			
+			$('name').removeClass('red');
+			for (var i = 0 ; i < server_list.length ; i++) {
+				$('.' + server_list[i]).addClass('red');
+				$('title')[0].text = '* Server Status';
+			}
 		}
 	});
 }
 
-get_failed_server(function(server_list){
-	$('#status').children().remove();
-	for (var i = 0 ; i < server_list.length ; i++) {
-		$('<li></li>').text(server_list[i]).appendTo('#status');
-	}
-});
+function t(x){
+	if (x < 10) return "0" + x;
+	return "" + x;
+}
 
-setInterval(function(){
-	get_failed_server(function(server_list){
-		$('#status').children().remove();
-		for (var i = 0 ; i < server_list.length ; i++) {
-			$('<li></li>').text(server_list[i]).appendTo('#status');
-			$('title')[0].text = '* Server Status';
-		}
-		if (server_list.length === 0) {
-			$('<li></li>').text('All servers are running well!').appendTo('#status');
-			$('title')[0].text = 'Server Status';
-		}
-	});
-}, 10000);
+$(function(){
+	// initialize
+	for (var i = 1; i <= 18 ; i++){
+		$('<li></li>').addClass('name').addClass('c' + t(i)).text('c' + t(i)).appendTo('#status').addClass('green');
+	}
+	for (var i = 1; i <= 4 ; i++){
+		$('<li></li>').addClass('name').addClass('x' + t(i)).text('x' + t(i)).appendTo('#status').addClass('green');
+	}
+	get_failed_server();
+
+	setInterval(function(){
+		get_failed_server();
+	}, 10000);
+});
