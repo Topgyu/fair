@@ -63,6 +63,9 @@ app.get('/uploadserverstatus', function (req, res) {
 			auth: {
 				user: configData.mail.user,
 				pass: configData.mail.password
+			},
+			tls: {
+				rejectUnauthorized: false
 			}
 		});
 
