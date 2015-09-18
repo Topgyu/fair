@@ -1,2 +1,4 @@
 server/data.csv
+server/config.yml
+server/views/serverstatus_json.html
 node_modules

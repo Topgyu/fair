@@ -1,0 +1,11 @@
+{
+	"name": "fair-service",
+	"version": "1.5.0",
+	"private": true,
+	"dependencies": {
+		"express": "",
+		"nodemailer": "",
+		"ejs": "",
+		"js-yaml": ""
+	}
+}

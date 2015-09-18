@@ -1,0 +1,4 @@
+mail:
+    service: Gmail
+    user: <mail address>
+    password: <password>
